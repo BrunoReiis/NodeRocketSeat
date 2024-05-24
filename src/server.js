@@ -1,6 +1,7 @@
 import http from "node:http";
+import { Database } from "./database";
 
-const users = [];
+const database = new Database
 
 const server = http.createServer((req, res) => {
   const { method, url } = req;

@@ -17,8 +17,8 @@ export const routes = [
     method: "POST",
     path: "/users",
     handler: (req, res) => {
-        const { name, email } = req.body;
-
+        const { name, email } = JSON.parse(req.body)
+        
         const user = {
           id: randomUUID(),
           name,
@@ -27,7 +27,7 @@ export const routes = [
     
         database.insert("users", user);
     
-        return res.writeHead().end();
+        return res.writeHead(200).end();
     },
   },
 ];
